@@ -2,17 +2,15 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {MasterToken} from "../src/MasterToken.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
-
-    function setUp() public {}
+contract TokenScript is Script {
+    MasterToken public token;
 
     function run() public {
         vm.startBroadcast();
 
-        counter = new Counter();
+        token = new MasterToken("MasterToken", "MTK");
 
         vm.stopBroadcast();
     }
